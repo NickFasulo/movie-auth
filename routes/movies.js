@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 
 // find movie by title
 router.get('/findmovie', (req, res) => {
-  Movie.findOne({ title: req.query.title })
+  Movie.findOne({ title: req.body.title }) // change to req.query.title once view is up
     .then(title => {
       if (title) {
         // render find word page with word
@@ -70,6 +70,61 @@ router.post('/addmovie', (req, res) => {
         err
       });
     });
+});
+
+// update movie
+router.put('/update/:title', (req, res) => {
+  // search for movie in database based on title parameter
+  Movie.findOne({ title: req.params.title })
+    .then(movie => {
+      if (movie) {
+        // fill in values for inputs or leave value if no input
+        movie.rating = req.body.rating ? req.body.rating : movie.rating;
+        movie.synopsis = req.body.synopsis ? req.body.synopsis : movie.synopsis;
+        movie.releaseYear = req.body.releaseYear
+          ? req.body.releaseYear
+          : movie.releaseYear;
+        movie.genre = req.body.genre ? req.body.genre : movie.genre;
+        movie.director = req.body.director ? req.body.director : movie.director;
+        movie.boxOffice = req.body.boxOffice
+          ? req.body.boxOffice
+          : movie.boxOffice;
+        // save movie
+        movie
+          .save()
+          .then(movie => {
+            res.status(200).json({
+              message: 'Movie updated',
+              movie
+            });
+          })
+          .catch(err =>
+            res.status(400).json({
+              message: 'Cannot reuse info',
+              err
+            })
+          );
+      }
+    })
+    .catch(err =>
+      res.status(400).json({
+        message: 'Movie not found',
+        err
+      })
+    );
+});
+
+// delete movie
+router.delete('/delete', (req, res) => {
+  Movie.findOneAndDelete({ title: req.body.title })
+    .then(movie => {
+      if (movie) {
+        return res.status(200).json({ message: 'movie deleted', movie });
+      } else {
+        return res.status(400).json({ message: 'No movie to delete' });
+      }
+    })
+    .catch(err => res.status(400).json({ message: 'Movie not deleted', err }));
 });
 
 module.exports = router;
