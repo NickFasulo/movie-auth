@@ -1,8 +1,60 @@
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+h1,
+h2 {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.form {
+  background-color: rgba(216, 216, 216, 0.5);
+  border-radius: 1rem;
+  width: 12rem;
+  padding: 1rem;
+}
+
+.form input {
+  display: flex;
+  margin: 0.5rem;
+  padding: 3px;
+}
+
+.form label {
+  display: flex;
+  margin: 0.5rem;
+}
+
+.form button {
+  margin-top: 1rem;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.form-links {
+  margin-top: 1rem;
+}
+
+.index-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
