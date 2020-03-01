@@ -15,46 +15,73 @@ a {
 h1,
 h2 {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+h2 a {
+  margin: 1.5rem;
 }
 
 form {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
-}
-
-.form {
-  background-color: rgba(216, 216, 216, 0.5);
+  background-color: rgba(211, 211, 211, 0.5);
   border-radius: 1rem;
   width: 12rem;
   padding: 1rem;
 }
 
-.form input {
+form input {
   display: flex;
   margin: 0.5rem;
-  padding: 3px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
 }
 
-.form label {
+form label {
   display: flex;
   margin: 0.5rem;
 }
 
-.form button {
+form button {
   margin-top: 1rem;
   padding: 5px;
   cursor: pointer;
+  border-radius: 0.3rem;
 }
 
 .form-links {
   margin-top: 1rem;
 }
 
-.index-links {
+.movie {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 25%;
+  border: 1px solid black;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.movies {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 3rem;
+}
+
+.add-movie {
+  width: 20rem;
+}
+
+textarea {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
 }

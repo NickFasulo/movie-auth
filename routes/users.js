@@ -23,6 +23,10 @@ router.get('/fail', (req, res) => {
   return res.render('fail');
 });
 
+router.get('/login', (req, res) => {
+  res.render('login');
+});
+
 // login with passport
 router.post(
   '/login',

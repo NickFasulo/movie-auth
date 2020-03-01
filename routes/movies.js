@@ -6,7 +6,7 @@ const Movie = require('../models/Movie');
 router.get('/', (req, res) => {
   Movie.find({})
     .then(movies => {
-      return res.status(200).json(movies);
+      return res.render('viewMovies', { movies });
     })
     .catch(err => res.status(500).json({ message: 'Server Error', err }));
 });
@@ -24,6 +24,10 @@ router.get('/findmovie', (req, res) => {
       }
     })
     .catch(err => res.status(500).json({ message: 'Server Error', err }));
+});
+
+router.get('/addmovie', (req, res) => {
+  res.render('addMovie');
 });
 
 // add movie to database
