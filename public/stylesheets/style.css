@@ -54,6 +54,15 @@ form button {
   border-radius: 0.3rem;
 }
 
+form button:hover {
+  margin-top: 1rem;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  border: solid blue 1px;
+  transition: 1s;
+}
+
 .form-links {
   margin-top: 1rem;
 }

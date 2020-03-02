@@ -16,8 +16,6 @@ router.get('/findmovie', (req, res) => {
   Movie.findOne({ title: req.body.title }) // change to req.query.title once view is up
     .then(title => {
       if (title) {
-        // render find word page with word
-        // return res.render('findWord', { word });
         return res.status(200).json({ title });
       } else {
         return res.status(400).json({ message: 'Movie not found' });
